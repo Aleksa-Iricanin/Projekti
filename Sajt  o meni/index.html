@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aleksa Iričanin 14/2019</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+	<div class="firstpart">
+		<div class="container">
+			<div id="menu">
+	<ul>
+	  <li class="logo"><a href="http://www.ftn.kg.ac.rs/" target="black" style="padding:0px;box-shadow:none">FTN ČAČAK</a></li>
+			<div class="right">
+	  <li><a href="limnor.html">Limnor</a></li>
+	  <li><a href="index.html">O meni</a></li>
+	  <li><a href="online.html">Predavanja</a></li>
+
+			</div>
+	</ul>
+		</div>
+	</div> 
+</div>
+	
+
+<div class="secondpart">
+	<div class="container">
+		<div class="zelenideo">
+		 <div class="bottom-right">VRNJAČKA BANJA</div>
+		</div>
+	</div>
+</div> 
+
+
+<div class="container">
+	<br><br><br>
+<div style="width: 32%;" class="text1">
+	<span class="h1"><h4>JA</h4></span>
+	 <img style="height:400px;width:300px;border-radius: 50%;border:5px groove #007897; " src="img/IMG-e8b9b6fc9b83dea3453546baacd5cfe2-V.jpg"/>
+	<br><br>
+	
+</div>
+<div class="text2">
+<br>
+			<table id="Tabela" class="table">
+    <thead>
+      <tr>
+        <th>Rbr</th>
+        <th>Semestar</th>
+        <th>Predmet</th>
+		<th>Ocena</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1.</td>
+        <td style="text-align:center;">I</td>
+        <td>IT</td>
+		<td style="text-align:center;">8</td>
+      </tr>
+      <tr>
+        <td>2.</td>
+        <td style="text-align:center;">I</td>
+        <td>Standardizacija u IT</td>
+		<td style="text-align:center;">7</td>
+      </tr>
+      <tr>
+        <td>3.</td>
+        <td style="text-align:center;">I</td>
+        <td>Uvod u programiranje</td>
+		<td style="text-align:center;">10</td>
+      </tr>
+	  <tr>
+        <td>4.</td>
+        <td style="text-align:center;">I</td>
+        <td>Matematika 1</td>
+		<td style="text-align:center;">8</td>
+      </tr>
+	  <tr>
+        <td>5.</td>
+        <td style="text-align:center;">I</td>
+        <td>Engleski jezik 1</td>
+		<td style="text-align:center;">10</td>
+      </tr>
+      <tr>
+        <td>6.</td>
+        <td style="text-align:center;">I</td>
+        <td>Praktikum iz programiranja</td>
+		<td style="text-align:center;">8</td>
+      </tr>
+      
+    </tbody>
+  </table>
+				<br>
+				<button onclick="sortTable()">Sortiraj</button>
+			<script>
+					function sortTable() {
+					  var table, rows, switching, i, x, y, shouldSwitch;
+					  table = document.getElementById("Tabela");
+					  switching = true;
+					  while (switching) {
+					    switching = false;
+					    rows = table.getElementsByTagName("TR");
+					    for (i = 1; i < (rows.length - 1); i++) {
+					      shouldSwitch = false;
+					      x = rows[i].getElementsByTagName("TD")[2];
+					      y = rows[i + 1].getElementsByTagName("TD")[2];
+					      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+					        shouldSwitch= true;
+					        break;
+					      }
+					    }
+					    if (shouldSwitch) {
+					      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+					      switching = true;
+					    }
+					  }
+					}
+				</script>
+</div>
+<div class="text3">
+	<span class="h1" style="font-size:20px;text-decoration:underline;text-align:center;"><h4>Nesto o meni:</h4></span>
+	<article style="border:2px solid #007897;padding:20px;">
+	    
+		
+			<b>Ime i Prezime: Aleksa Iričanin</b> <br><br>
+	    	<b>Datum rodjenja: 18.8.2000</b> <br><br>
+			<b>Mesto rodjenja: Kraljevo</b> <br><br>
+			<b>Državljanstvo: Srpsko</b> <br><br>
+			<b>Mesto stanovanja: Vrnjačka Banja</b> <br><br>
+			<b>Adresa: Jefimijina 25</b> <br><br>
+			<b>Telefon: 062/621-809</b> <br><br>
+			<b>E-mail: aleksairicanin@gmail.com</b> <br><br>
+
+	   
+	</article>
+
+	<article>
+	
+	 <br><br>
+
+	</article>	
+</div>
+
+	<div class="pp1">
+	
+	<span class="h1"><h3>Obrazovanje i iskustvo</h3></span>
+	<br>
+	
+	<article>
+	    <img style="height:150px;width:200px;" src="img/PB.jpg"/>
+		<b>Osnovna škola (2007 – 2015)</b> <br><br>
+	    
+	   	Pohadjao sam osnovnu školu „Popinski borci” u Vrnjačkoj Banji.<br><br><br>
+	   
+	</article>
+	<br>
+	<article>
+	    <img style="height:150px;width:200px;" src="img/ESTS.jpg"/>
+		<b>Srednja škola (2015 - 2019)</b> <br><br>
+	   
+	    Završio sam Elektro-saobraćajno tehničku školu „Nikola Tesla” u Kraljevu. Smer „Elektrotehničar informacionih tehnologija”.<br><br>
+	   
+	</article>
+	<br>
+	<article>
+	    <img style="height:150px;width:200px;" src="img/FTN.jpg"/>
+		<b>Fakultet (2019 - )</b> <br><br>
+	    
+	    	Trenutno studiram na Fakultetu tehničkih nauka u Čačku univerziteta u Kragujevcu na smeru „Informacione tehnologije”.
+	   
+	</article>	
+	
+	<br><br>
+	
+	<p style="background: linear-gradient(#008cab,#007c9e);color:white;border-radius:40px;padding:15px 5px 15px 12px;">Još od malih nogu sam se zainteresovao za rad na računaru. Moja prva iskustva sa programiranjem i web dizajnom počinju od osnovne škole gde sam pokupio neka osnovna znanja iz HTML-a i izrade logičkih algoritama.</p>
+	<br>
+	<p style="padding:15px 5px 15px 12px;">Prograski jezici koje sam obradjivao i naučio su:C, C++, C#, PHP, HTML, CSS, SQL, Java, JavaScritpt.<br>Neka od  okruženja koje sam koristio su: CodeBlocks,Dev C++, NetBeans, Apex, Wamp, Notepad++, Visual Studio, Arduino, DataModeler, Cisco Packet Tracer, Adobe AutoCad, Unity.<br>Poznajem i Micosoft Office pakete  u kojima se veoma dobro snalazim.
+</p>
+	</div>
+
+	<div class="pp2">
+			<article>
+				<span class="h1"><h3>O Vrnjačkoj Banji</h3></span>
+				<p style="background: linear-gradient(#008cab,#007c9e);color:white;border-radius:40px;padding:15px 5px 15px 15px;">Vrnjačka Banja je gradsko naselje u Srbiji u opštini Vrnjačka Banja u Raškom okrugu. Ona je i najveća banja u Srbiji.Vrnjačka Banja ima veoma dugu tradiciju lečilišta. Na vrnjačkom toplom mineralnom izvoru u vremenu od II do 4. veka Rimljani su izgradili lečilište i oporavilište AQUAE ORCINAE.<p>Razvoj moderne Vrnjačke Banje započeo je 1868. godine radom Osnivačkog društva, najstarije turističke organizacije na Balkanu. Između 1882. i 1887. godine u Banji je izgrađen Dvorac Belimarkovića. Tu se sada nalazi Kulturni centar Vrnjačka Banja.Glavna privredna grana u Vrnjačkoj Banji je turizam.</p><p style="background: linear-gradient(#008cab,#007c9e);color:white;border-radius:40px;padding:15px 5px 15px 15px;"> Kao jedna od vodećih turističkih destinacija u Srbiji, Vrnjačka Banja prednjači u uvođenju inovativnosti u prezentovanju turističkih potencijala.</p></p><br>
+			<div class="red">	
+				<img src="img/vodopad.jpg"/>
+			</div>
+			<div class="red">	
+				<img src="img/gocko.jpg"/> 
+			</div>
+	</article>
+
+	<article>
+			<span class="h1"><h3>Mineralne vode</h3></span>
+			<p>U Vrnjačkoj Banji se nalazi sedam mineralnih izvora. To su: Topla voda, Slatina, Snežnik, Jezero, Borjak, Beli izvor i Vrnjačko vrelo, od kojih se za terapije koriste četiri (Topla voda, Snežnik, Jezero i Slatina ) dok se vode sa tri izvora flaširaju kao prirodne mineralne vode (Voda Vrnjci - Borjak, Borjak 3 i Belimarkovac za Element vodu).</p>
+			Vrnjačke mineralne vode se primenjuju kod lečenja:
+			<ul style="background:none;list-style-type:disc;">
+				<li>šećernih bolesti</li><br>
+				<li>stanje posle preležene zarazne žutice</li><br>
+				<li>hroničnog zapaljenja creva i želuca</li><br>
+				<li>bolest žučne kese i žučnih puteva</li><br>
+				<li>čira u želucu i dvanaestopalačnom crevu</li><br>
+				<li>bolest bubrežne karlice, mokraćne bešike i mokračnih puteva i drugih bolesti.</li>
+			
+			</ul>
+	</article>
+	
+	</div>	
+	
+</div>
+<footer>
+	<div class="container">
+		<br><br>
+	<div class="pp3">
+		<span class="h1" style="text-align:center;"><h4>Ulogujte se preko društvenih mreža ili preko naloga</h4></span>
+
+	<div class="nalozi">
+  <form>
+    <div class="row">
+
+         <div class="col">
+        <a href="https://www.facebook.com/" class="fb btn">
+          <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+         </a>
+        <a style="padding-right:35px;" href="https://twitter.com/explore" class="twitter btn">
+          <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+        </a>
+        <a style="padding-right:40px;" href="https://www.google.com/gmail/" class="email btn"><i class="fa fa-google fa-fw">
+          </i> Login with Gmail
+        </a>
+      </div>
+
+      <div class="col">
+
+        <input type="text" name="username" id="user" placeholder="Korisničko ime" required></input>
+        <input type="password" name="password" id="pass" placeholder="Lozinka" required></input>
+        <input type="submit" value="Login" onclick="fun()"></input>
+      </div>
+
+<script>	  
+      function fun()
+{
+
+ var username = document.getElementById('user').value
+    var password = document.getElementById('pass').value
+	if(username != "" &&password != "" )
+		alert("Dobrodosli "+username+ "\n Lozinka:" +password);
+}
+</script>
+    </div>
+  </form>
+</div>
+
+<div class="bottom-container">
+  <div class="row">
+    <div class="col">
+      <a href="#" style="color:white" class="btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Registrujte se</a>
+
+	  <div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content" >
+    <div class="container">
+      <h1>Registrujte se</h1>
+      <p>Napravite nalog.</p>
+      <hr>
+      <label for="email"><b>Email</b></label>
+      <input id="em" type="text" placeholder="Unesite e-mail" name="email" required>
+
+      <label for="psw"><b>Lozinka</b></label>
+      <input id="p" type="password" placeholder="Unesite lozinku" name="psw" required>
+
+      <label for="psw-repeat"><b>Ponovite lozinku</b></label>
+      <input id="p1" type="password" placeholder="Ponovite lozinku" name="psw-repeat" required>
+      
+      <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Zapamti me
+      </label>
+
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Odustani</button>
+        <button id="signUp" type="submit" class="signupbtn" onclick="signUP()">Registracija</button>  
+      </div>
+    </div>
+  </form>
+  <script>
+
+var modal = document.getElementById('id01');
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+function signUP()
+{
+var mail=document.getElementById("em").value;
+var password=document.getElementById("p").value;
+var rpassword=document.getElementById("p1").value;
+if(mail != "" && password != "" && rpassword != "")
+alert("Hvala sto ste se prijavili :)\n"+"Vas Email je:"+ document.getElementById('em').value + " i uneta lozinka je:"+ document.getElementById('p').value );
+}
+</script>
+</div>
+    </div>
+    <div class="col">
+      <a href="#" style="color:white" class="btn">Zaboravili lozinku?</a>
+    </div>
+  </div>
+</div>
+	</div>
+		<div class="pp4">
+			<span class="h1"><h4>Kontakt</h4></span> 
+				<i class="fa fa-envelope" style="font-size:25px;"></i><b style="padding-left:15px;">aleksairicanin@gmail.com<br><br></b>
+				<i class="fa fa-phone" style="font-size:30px;"></i><b style="padding-left:20px;">062/621-809<br><br></b>
+				<i class="fa fa-facebook fa-fw"  style="font-size:25px;"></i><b style="padding-left:12px;">Aleksa Iričanin<br><br></b>
+		
+		
+		</div>
+	</div>
+	
+	<div class="footer">
+		<div class="container">
+	<hr>
+	<br>
+		 Aleksa Iričanin 14/2019. All rights reserverd.</a>
+		</div>
+	</div>
+</footer>
+
+
+
+</body>
+
+</html>
