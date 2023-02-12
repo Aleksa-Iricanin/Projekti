@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="keywords" content="Responsive, Mobile, JS, JavaScript, HTML, CSS, game, video game, gaming">
+  <meta name="author" content="Aleksa Iričanin">
+  <meta name="author" content="Jovan Milić">
+  <meta name="author" content="Nenad Zarić">
+  <meta name="description" content="Sajt -  Prezentuje HTML, CSS i JavaScript tehnologije, naprevljen kao projekat za 
+    predmet Web Tehnologije na Fakulteteu Tehničkih nauka u Čačku. Rekreirane su retro video igre
+    poput zmijica, vesalice i flappy bird.">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="img/slika.ico" />
+  <link href="./games/vesalica/vesalica.css" rel="stylesheet">
+  <script src="./games/vesalica/vesalica.js"></script>
+  <link href='https://css.gg/youtube.css' rel='stylesheet'>
+  <script src="https://kit.fontawesome.com/6597407801.js" crossorigin="anonymous"></script>
+
+
+  <title>Vešalice</title>
+</head>
+
+<body>
+  <nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
+    <a class="navbar-brand" href="#">DoApps</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto navbar-center">
+        <li class="nav-item ">
+          <a class="nav-link " href="index.html">Početna </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link " href="jezici.html">Jezici</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-expanded="false">
+            Igrice
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="snake.html">Zmijice</a>
+            <a class="dropdown-item" href="./games/flappyBirdClone/flappy.html">Flappy bird</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="vesalica.html">Vešalice<span class="sr-only">(current)</span></a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="agilne.html">Agilne metode</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="okruzenje.html">Razvojno okruzenje</a>
+        </li>
+      </ul>
+    </div>
+
+  </nav>
+
+  <section>
+    <h1 id="headerIgreV">Igrica vešalice</h2>
+  </section>
+
+
+
+  <div class="slideshow-container">
+    <div class="mySlides1">
+      <img src="img/vesala1.JPG" style="width:100%">
+    </div>
+
+    <div class="mySlides1">
+      <img src="img/vesala2.JPG" style="width:100%">
+    </div>
+
+    <div class="mySlides1">
+      <img src="img/vesala3.JPG" style="width:100%">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div id="kodVesalice" class="col-9 col-12-medium">
+        <div class="content">
+
+
+          <article class="box page-content">
+
+
+            <section>
+              <h3 class="nasloviVesalice">KAKO IGRATI (PRAVILA IGRE VEŠALICE)</h3>
+              <p>
+                Pravila:
+                Vešalice je jednostavna HTML5 igra o pogađanju slučajno odabrane reči.
+                Igrač pritiskom na panel sa slovima može da izabere slovo u svakom krugu.
+                Ako slovo ne postoji u izabranoj reči, igrač će izgubiti jedan poen.
+                Nakon što izgubi određeni broj poena, igrač gubi igru.
+                Igrač će pobediti u igri ako tačno pogodi reč.
+              </p>
+              Dalje će biti prikazan kod kroz postupke kako je igra napravljena
+            </section>
+
+            <section>
+              <h3 class="nasloviVesalice">KORAK 1) INTERFEJS IGRE (HTML IZGLED)</h3>
+              <p>
+                <span class="image featured"><img src="img/vesalicaHTML.JPG" alt="" /></span>
+              </p>
+              <p>
+
+                Igra se nalazi unutar <b>&lt div id="headerIgreV"&gt </b> i podeljena je na <b>&ltdiv id="leviDeo"&gt
+                </b>i <b>&ltdiv id="desniDeo"&gt </b><br />
+                Na levoj strani se nalazi:
+                <b>&ltimg id="slikaIgre"/&gt </b>Slika igre. Slika je postavljena na opacity: 0 i postepeno povećavamo
+                na opacity: 1 što igrač više maši slova u zadatoj reči.
+                <b>&ltspan id="zivot"&gt </b>Predstavlja broj preostalih pokušaja.<br />
+                Na desnoj strani se nalazi:
+                <b>&ltdiv id="reci"&gt </b> Sve reci koje mogu pasti da se pogode.
+                <b>&ltdiv id="karakter"&gt </b>Sva dostupna slova (A do Z).
+                <b>&ltinput id="restart"&gt </b>Dugme za resetovanje igre.
+
+              </p>
+            </section>
+            <section>
+              <h3 class="nasloviVesalice">KORAK 2) STILIZOVARNJE IGRE</h3>
+              <p>
+                <span class="image featured"><img src="img/vesalicaCSS.jpg" alt="" /></span>
+              </p>
+              <p>
+
+                Pomoću CSS-a podešavamo izgled igre. Postavljamo <b>display:flex</b> koji nam omogućava da se slova
+                nalaze jedna pored drugih, podešavamo veličinu i boju same igre, slova, font-a. Slika u početku neće
+                biti vidljiva, ali ukoliko igrač bude mašio slova u zadatoj reči slika će se postepeno prikazivati.
+
+              </p>
+            </section>
+
+
+
+            <section>
+              <h3 class="nasloviVesalice">KORAK 3) SVOJSTVA ​​I INICIJALIZACIJA IGRE</h3>
+              <p>
+                <span class="image featured"><img src="img/vesalicaJS.jpg" alt="" /></span>
+              </p>
+              <p>
+
+                Počinjemo sa definisanjem svih svojstava igre u JavaScript-u. Ovo bi trebalo da bude prilično razumljivo
+                – broj pokušaja, rečnik sa svim rečima koje mogu doći u obzir, trenutono odabranu reč, dužinu reči, broj
+                tačnih i pogrešnih pokušaja, preostala slova.
+                <b>igra.init()</b> je prvu koju pozivamo pri učitavanju stranice da bismo inicijalizovali igru.<br />
+                Zatim pomoću for petlje prolazimo kroz velika slova iz ASCII tabele.<br /> Koristimo promenljivu
+                <b>rst</b> koja se aktivira kada se klikne na dugme RESET i time resetovati igru na prvobitno stanje.
+
+              </p>
+            </section>
+            <section>
+              <h3 class="nasloviVesalice">KORAK 4) PONOVNO POKRETANJE IGRE</h3>
+              <p>
+                <span class="image featured"><img src="img/vesalicajs4.jpg" alt="" /></span>
+              </p>
+              <p>
+
+                Nakon što je HTML podešavanje završeno, <b>igra.reset()</b> će se baviti ponovnim pokretanjem igre.
+                Pomoću <b>reset</b> funkcije resetuju se sve promenljive igre, izaberite drugu reč, resetujte interfejs
+                igre.
+
+              </p>
+            </section>
+            <section>
+              <h3 class="nasloviVesalice">KORAK 5) ODABIR SLOVA</h3>
+              <p>
+                <span class="image featured"><img src="img/vesalicajs3.jpg" alt="" /></span>
+              </p>
+              <p>
+
+                Na kraju, imamo <b>igra.check()</b>. Ovo se pokreće kada igrač odabere slov iz abecede – Zatim
+                proveravamo da li je izabrano slovo u trenutnoj reči, ažuriramo rezultat u skladu sa tim. Ako je igrač
+                pogodio celu reč, to je pobeda. Ako ne, igrač gubi od nestanka pokušaja.<br /></p>
+              <p>Promenljiva <b>index</b> nam služi da se krećemo kroz slova i na osnovu nje prikazujemo slovo umesto
+                crtice na ekranu. Prolazimo kroz dužinu niza i za svaki pogodak nam se prikazuje to slovo. U slučaju da
+                nam je broj pogodaka isti kao i dužina reči, onda smo dobili igru.</p>
+              <p> U suprotnom, svaki promašaj od odabranog slova smanjuje pokušaj kome smo dodeliti 5. Promenljiva
+                <b>ostalo</b> čuva preostali broj pokušaja. Kada broj promašaja dostigne isti broj pogrešnih unosa onda
+                će igra ispisati poraz.
+              </p>
+            </section>
+          </article>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <script>
+    let slideIndex = [1, 1];
+    let slideId = ["mySlides1", "mySlides2"]
+    showSlides(1, 0);
+    showSlides(1, 1);
+
+    function plusSlides(n, no) {
+      showSlides(slideIndex[no] += n, no);
+    }
+
+    function showSlides(n, no) {
+      let i;
+      let x = document.getElementsByClassName(slideId[no]);
+      if (n > x.length) {slideIndex[no] = 1}
+      if (n < 1) {slideIndex[no] = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      x[slideIndex[no] - 1].style.display = "block";
+    }
+  </script>
+
+
+
+
+  <div id="odvoji">
+    <h1 id="headerIgreV">Prikaz igre</h2>
+      <div id="vesalicaVelicina">
+
+        <div id="leviDeo">
+          <img id="slikaIgre" src="./img/hangman.png" />
+          <div id="zivot-w">
+            PREOSTALO: <span id="zivot"></span>
+          </div>
+        </div>
+        <div id="desniDeo">
+
+          <div id="reci"></div>
+
+          <div id="karakter"></div>
+
+          <input type="button" value="Reset" id="restart" disabled />
+        </div>
+      </div>
+  </div>
+
+  </div>
+
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    -->
+
+</body>
+<footer class="text-center text-white" style="background-color:  #17181c;">
+  <!-- Grid container -->
+  <div class="container p-4"></div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color:  #272930;">
+    © 2020 Copyright
+
+  </div>
+  <!-- Copyright -->
+</footer>
+
+</html>

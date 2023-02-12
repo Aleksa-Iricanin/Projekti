@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" onclick="jump()">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="keywords" content="Responsive, Mobile, JS, JavaScript, HTML, CSS, game, video game, gaming">
+  <meta name="author" content="Aleksa Iričanin">
+  <meta name="author" content="Jovan Milić">
+  <meta name="author" content="Nenad Zarić">
+  <meta name="description" content="Sajt -  Prezentuje HTML, CSS i JavaScript tehnologije, naprevljen kao projekat za 
+    predmet Web Tehnologije na Fakulteteu Tehničkih nauka u Čačku. Rekreirane su retro video igre
+    poput zmijica, vesalice i flappy bird.">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/scrum.css" />
+  <link rel="icon" href="../../img/slika.ico" />
+  <link rel="stylesheet" href="flappy.css" />
+  <link rel="stylesheet" href="./pageStyle.css">
+
+  <link href="https://css.gg/youtube.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/6597407801.js" crossorigin="anonymous"></script>
+
+  <title>Flappy bird</title>
+</head>
+
+<body>
+  <nav id="nav" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">DoApps</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto navbar-center">
+        <li class="nav-item">
+          <a class="nav-link" href="../../index.html">Početna <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../jezici.html">Jezici</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link  active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-expanded="false">
+            Igrice
+          </a>
+          <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="../../snake.html">Zmijice</a>
+            <a class="dropdown-item" href="flappy.html">Flappy bird</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../vesalica.html">Vešalice</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../../agilne.html">Agilne metode</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../okruzenje.html">Razvojno okruzenje</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="canvas">
+    <div id="score">
+      <h1 id="scoreText">0</h1>
+    </div>
+    <div id="pipe"></div>
+    <div id="hole"></div>
+    <div id="bird">
+      <img id="birdSprite" src="assets/sprites/bird.png" alt="" />
+    </div>
+  </div>
+
+  <div class="container">
+    <section>
+      <div id="description">
+        <h1>Flappy Bird</h1>
+        <p>Flappy bird je mobilna video igra objavljena u maju 2013. godine. Usled svog jednostavnog dizajna i gejmpleja
+          stekla je popularnost neviđenom brzinom.
+          Mehanika ove igre nije preterano složena, od igrača se očekuje da ptičicu što duže održava u letu, odolevajući
+          gravitaciji
+          i navodeći je između beskonačnog broja parova cevi.
+        </p>
+        <p>Igra je početkom 2014. godine uklonjena sa App Store i Google Play-a, zbog, kako developer tvrdi, griže
+          savesti usled preterane zaraznosti igre i slomljenih telefona u naletu besa.</p>
+        <p>Nakon uklanjanja igre sa ovih platformi, pojavio se veliki broj klonova koji nisu došli ni blizu slave koju
+          je postigao original.</p>
+        <p>U svrhu ovog projekta napravljen je pojednostavljen klon igre flappy bird korišćenjem čistog HTML/CSS/JS
+          koda.</p>
+      </div>
+
+
+      <h2 style="text-align: center;">Opis zanimljivih delova koda koda</h2>
+
+      <div id="firstRow">
+        <div class="row oddRow">
+          <pre><code class="code col-sm col-8">setInterval(function () {
+              let birdTop = parseInt(window.getComputedStyle(bird).getPropertyValue("top"));
+              if (isJumping == 0) {
+              bird.style.top = birdTop + 3 + "px";
+              }
+
+              let pipeLeft = parseInt(
+              window.getComputedStyle(pipe).getPropertyValue("left")
+              );
+
+              let holeTop = parseInt(window.getComputedStyle(hole).getPropertyValue("top"));
+              let bTop = -(500 - birdTop);
+
+              if (
+              birdTop > 480 ||
+              (pipeLeft < 20 && pipeLeft> -50 &&
+                (bTop < holeTop || bTop> holeTop + 130))
+                  ) {
+                  alert("Game over. Score: " + (counter - 1));
+                  bird.style.top = 100 + "px";
+                  counter = 0;
+                  }
+                  }, 10);
+            </code></pre>
+          <div class="col-sm">
+            <p>U pitanju je funkcija koja obezbedjuje gravitaciju i detektuje koiziju tokom igre.
+              Tj. obezbedjuje da ptica pada ka dole kada nema ulaza od korisnika i detektuje kada je ptica udarila o
+              zemlju ili cevi.
+            </p>
+            <p>
+              Detektuju se ivice elemenata na čiju koliziju treba obratiti pažnju. To se postiže korišćenjem
+              window.getComputedStyle(nazivElementa).
+            </p>
+            <p>
+              Takođe, kako bi se simulirala gravitacija, proverava se vrednost promenljive
+              isJumping koja se postavlja na vrednost 1 kada korisnik klikne na ekran i tim putem pokrene pticu ka gore.
+              Ako je vrednost promenljive 0, onda znamo da korisnik nije kliknuo i simulira se pad ptice ka dole tako
+              sto se u svakoj iteraciji
+              setInterval funkcje pozicija elementa bird spušta za 3px.
+            </p>
+            <p>Zbog cinjenice da smo elementu hole, koji predstavlja rupu u cevi kroz koju prolazi ptica,
+              u css-u dali negativnu vrednost top atributa,
+              sada moramo dati negativnu vrednost poziciji ptice kako bi mogli da detektujemo koliziju.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="secondRow">
+
+        <div class="row evenRow">
+          <div class="col-sm">
+            <p>U ovom delu koda implementirana ja funkcija jump(),
+              koja se poziva u HTML fajlu, funkcijom onclick() kada igrac klikne na bilo koji deo stranice.
+            </p>
+            <p>Na samom početku funkcije, vrednost promenljive isJumping se setuje na 1, kako se ptica vise ne bi
+              pomerala ka dole. Definise
+              se promenljiva jumpLenght kako bi se pratilo kroz koliko intervala je ptica letela ka gore.
+            </p>
+            <p>U prvom if statementu, proverava se da li se ptica nalazi ispod gornje ivice diva,
+              i da li je broj intervala u kom je trajao skok manji od 15.
+              Ukoliko su uslovi ispunjeni pozicija elemenata bird se pomera za gore za 5 px.
+              Ukoliko je broj intervala skoka veci od 20, prekida se skok i vrednost promenljive isJumping se vraća na
+              0.
+            </p>
+          </div>
+          <pre><code class="code col-sm col-8">
+              function jump() {
+              isJumping = 1;
+              let jumpLenght = 0;
+              let jumpInterval = setInterval(function () {
+              let birdTop = parseInt(
+              window.getComputedStyle(bird).getPropertyValue("top")
+              );
+              if (birdTop > 6 && jumpLenght < 15) { bird.style.top=birdTop - 5 + "px" ; } if (jumpLenght> 20) {
+                clearInterval(jumpInterval);
+                isJumping = 0;
+                jumpLenght = 0;
+                }
+                jumpLenght++;
+                }, 10);
+                }
+            </code></pre>
+        </div>
+      </div>
+
+      <div id="thirdRow">
+        <div class="row oddRow">
+          <pre><code class="code col-sm col-8">
+              hole.addEventListener("animationiteration", () => {
+              //Pomera rupu posle svake iteracije animacije na nasumicno generisanu poziciju
+              let yPosition = -(Math.random() * 300 + 150);
+              hole.style.top = yPosition + "px";
+              //Brojac se povecava za jedan kako bi pratili osvojene poene
+              counter++;
+              document.getElementById("scoreText").innerHTML = counter - 1;
+              });
+
+              }
+            </code></pre>
+
+          <div class="col-sm">
+            <p>Dodaje se Event Listener elementu hole, koji prati svaku iteraciju njegove animacije.</p>
+            <p>Posle svake iteracije pomera element hole na nasumicno generisanu poziciju i povecava brojac za jedan
+              kako bi
+              pratili broj osvojenih bodova.</p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  </section>
+
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+    crossorigin="anonymous"></script>
+  <script src="flappy.js"></script>
+  <script src="./textAnimation.js"></script>
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    -->
+</body>
+<footer class="text-center text-white" style="background-color:  #17181c;">
+  <!-- Grid container -->
+  <div class="container p-4"></div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color:  #272930;">
+    © 2020 Copyright
+  </div>
+  <!-- Copyright -->
+</footer>
+
+</html>

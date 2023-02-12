@@ -1,0 +1,70 @@
+body{
+    font-family: Inconsolata,monospace;
+    overflow: auto;
+}
+
+#article{
+    text-align: center;
+    background-color: #18181c;
+    color: #eee;
+    width: 70%;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+.text{
+    text-align: left;
+    margin: 0.4rem 2.5rem;
+    margin-top: 2rem;
+}
+
+.text h1{
+    text-align: left;
+}
+
+.text a{
+    font-weight: bolder;
+    color: #543864;
+    text-decoration: underline;
+}
+
+.text a:hover{
+    color: #7d5594;
+}
+
+#autor{
+    display: inline-block;
+}
+
+#autor h4{
+    float: right; 
+    padding-top: 15px;
+    font-size: 1.2em;
+    color: #aaa;
+}
+
+#image{
+    float: left;
+    width: 55px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+
+@media only screen and (max-width:600px){
+    #article{
+        width: 100%;
+    }
+     
+}
+
+@media only screen and (max-width:550px){
+    .text{
+        margin: 0.4rem 1rem;
+        margin-top: 2em;
+    }
+    
+     .text h1{
+        text-align: left;
+        font-size: 2.3em;
+    }
+}

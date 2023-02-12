@@ -1,0 +1,41 @@
+#vesalicaVelicina {
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #ffdfbe;
+  margin-top:3%;
+  color:black;
+}
+#leviDeo, #desniDeo { padding: 10px; }
+#leviDeo { width: 30%; text-align: center; }
+#desniDeo { width: 70%; }
+
+#vesalicaVelicina, #vesalicaVelicina input {
+  font-family: Impact, sans-serif;
+  font-size: 20px;
+}
+#vesalicaVelicina input {
+  padding: 5px 20px;
+  margin: 2px;
+  background: #e46810;
+  color: #fff;
+  border: 0;
+}
+#vesalicaVelicina input[type=button]:disabled {
+  background: #7b7b7b;
+  color: #ccc;
+}
+
+#slikaIgre {
+  max-width: 100%;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+#reci span {
+  font-size: 30px;
+  display: inline-block;
+  margin: 5px;
+}
+
+#karakter { margin: 10px 0; }
